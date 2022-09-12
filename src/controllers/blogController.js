@@ -48,8 +48,9 @@ const getBlog = async function (req, res) {
             }
         }
 
-        if (!req.query.authorId) return res.status(400).send({ status: false, msg: "authorId cant be null" })
+       
         if (authorId) {
+            if (!req.query.authorId) return res.status(400).send({ status: false, msg: "authorId cant be null" })
             let isValid = mongoose.Types.ObjectId.isValid(authorId)
             if (isValid == false) return res.status(400).send({ status: false, msg: "Invalid length of authorId" })
 
