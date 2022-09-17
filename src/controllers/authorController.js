@@ -30,8 +30,9 @@ const login = async function (req, res) {
       {
          authorId: author._id.toString(),
          project: "Blogging site",
+         iat:Math.floor(Date.now()/1000),
+         exp:Math.floor(Date.now()/1000)+10*60*60,
          teamNo: "32"
-
       },
       "Project -1 Blogging Project"
       

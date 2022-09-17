@@ -17,6 +17,7 @@ const authenticate = function (req, res, next) {
                     return res.status(400).send({ status: false, msg: "Invalid token " });
                 }
                 req.headers.authorId = response.authorId
+                console.log(req.headers)
                 next()
             })
     }

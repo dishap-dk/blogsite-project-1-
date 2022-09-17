@@ -49,16 +49,9 @@ const getBlog = async function (req, res) {
                 return res.status(400).send({ status: false, msg: 'No blogs in this category exist' })
             }
         }
-<<<<<<< HEAD
-
-       
-        if (authorId) {
-            if (!req.query.authorId) return res.status(400).send({ status: false, msg: "authorId cant be null" })
-=======
         if (authorId) {
 
             // if (!req.query.authorId) return res.status(400).send({ status: false, msg: "authorId cant be null" })
->>>>>>> 2856227a3b48496ac73393101dc1fa861bc7fb3d
             let isValid = mongoose.Types.ObjectId.isValid(authorId)
             if (isValid == false) return res.status(400).send({ status: false, msg: "Invalid length of authorId" })
 
@@ -151,9 +144,9 @@ const deleteByQuery = async function (req, res) {
 
         const data = req.query
         let authorId = req.headers.authorId
-        // console.log(_id)
+       
 
-        data.authorId = authorId
+        // data.authorId = authorId
         const deleteData = await blogModel.updateMany(data, { isDeleted: true, deletedAt: Date.now() }, { new: true })
         if (deleteData.matchedCount == 0) return res.status(404).send({ status: 404, msg: "data not found" })
         return res.status(200).send({ status: true, data : deleteData })

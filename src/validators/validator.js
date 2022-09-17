@@ -51,10 +51,6 @@ const blogValidator = function (req, res, next) {
         if (!data.authorId) return res.status(400).send({status : false, msg: "Enter authorId" })
         if (!data.category) return res.status(400).send({status : false, msg: "Enter category" })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 2856227a3b48496ac73393101dc1fa861bc7fb3d
         next()
     }
     catch (error) {
@@ -64,3 +60,4 @@ const blogValidator = function (req, res, next) {
 
 module.exports.authorValidator = authorValidator
 module.exports.blogValidator = blogValidator
+// --------------------------------------------------------------------------------------------------------------------
